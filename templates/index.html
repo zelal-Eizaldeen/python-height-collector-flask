@@ -8,8 +8,12 @@
       <h1>Collecting height</h1>
       <h3>Please fill the entries to get population statistics on height</h3>
       <div class="message">{{text | safe}}</div>
-      <form action="{{url_for('success')}}" method="POST">
-        <input
+      <form
+        action="{{url_for('success')}}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <!-- <input
           title="Your email will be safe with us"
           placeholder="Enter your email address"
           type="email"
@@ -28,9 +32,13 @@
           name="height_name"
           required
         />
+        <br /> -->
+        <input type="file" name="file" />
         <br />
         <button type="submit">Submit</button>
       </form>
+
+      {% if btn is defined %} {% include btn %} {% endif %}
     </div>
   </body>
 </html>
